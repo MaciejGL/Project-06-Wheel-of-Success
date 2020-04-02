@@ -6,7 +6,6 @@ const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 const hearts = document.querySelectorAll('.tries');
 let missed = 0;
-let found = 0;
 let wins = 0;
 const phrases = ['Hit Below The Belt', 'On the Ropes', 'A Chip on Your Shoulder', 'Rain on Your Parade', 'Needle In a Haystack']
 // let arrOfLetters;
@@ -49,15 +48,13 @@ const checkLetter = (value) => {
         if (value == letter.toLowerCase()) {
             letters[i].classList.add('show');
             match = value;
-            found++
         }
     }
     return match
 }
 
 
-let phraseArray = getRandomPhraseAsArray(phrases);
-addPhraseToDisplay(phraseArray);
+addPhraseToDisplay(getRandomPhraseAsArray(phrases));
 
 qwerty.addEventListener('click', (e) => {
     let tag = e.target.tagName;
@@ -67,7 +64,7 @@ qwerty.addEventListener('click', (e) => {
         e.target.classList.add('chosen');
         // console.log(chosenLetter)
         let checked = checkLetter(chosenLetter);
-        console.log(checked)
+        // console.log(checked)
         if (checked == null && missed < 5) {
             hearts[missed].innerHTML = `<img src="images/lostHeart.png" height="35px" width="30px">`
             missed++
