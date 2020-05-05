@@ -23,12 +23,10 @@ const getRandomPhraseAsArray = (arr) => {
 // Add letters to display
 
 const addPhraseToDisplay = (arr) => {
-
-
     for (let i = 0; i < arr.length; i++) {
         let listItem = document.createElement('li');
-        listItem.innerHTML = `<li>${arr[i]}</li>`;
-        document.getElementById('phrase').appendChild(listItem);
+        listItem.textContent = arr[i];
+        document.querySelector('#phrase ul').appendChild(listItem);
         if (arr[i] !== " ") {
             listItem.classList.add('letter')
         } else {
